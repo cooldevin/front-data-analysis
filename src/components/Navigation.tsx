@@ -31,7 +31,8 @@ export default function Navigation({ loggedIn }: Props) {
   const handleLogout = () => {
     // 登出逻辑
     localStorage.removeItem('token');
-    window.location.reload();
+    handleMenuClose();
+    navigate('/login');
   };
   const location = useLocation();
   const navigate = useNavigate();
@@ -92,7 +93,7 @@ export default function Navigation({ loggedIn }: Props) {
             </Menu>
           </div>
         ) : (
-          <Button color="inherit" component={Link} to="/login">登录</Button>
+          <Button color="inherit" component={Link} to="/login">退出登录</Button>
         )}
       </Toolbar>
 
